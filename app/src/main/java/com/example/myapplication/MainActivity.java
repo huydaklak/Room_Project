@@ -29,11 +29,13 @@ public class MainActivity extends AppCompatActivity {
     private EditText edName;
     private EditText edAge;
     private Button btnAdd;
+    private Button btnUpdate;
     private RecyclerView rcvData;
     private DBConection dbConection;
     private StudentDAO studentDAO;
     private List<Student> studentList;
     private StudentAdapter studentAdapter;
+    private Student selectedStudent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         edName = findViewById(R.id.ed_student_name);
         edAge = findViewById(R.id.ed_student_age);
         btnAdd = findViewById(R.id.btn_add);
+        btnUpdate = findViewById(R.id.btn_update);
         rcvData = findViewById(R.id.rcv_main);
         dbConection = Room.databaseBuilder(this, DBConection.class, "Student.db")
                 .allowMainThreadQueries()
@@ -60,11 +63,60 @@ public class MainActivity extends AppCompatActivity {
             addStudent();
         });
 
+        btnUpdate.setOnClickListener(v -> {
+            updateStudent();
+        });
+        studentAdapter.setOnItemClickListener(student -> {
+            selectedStudent = student;
+
+            edCode.setText(student.getCode());
+            edName.setText(student.getName());
+            edAge.setText(String.valueOf(student.getAge()));
+        });
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    private void updateStudent() {
+        if (selectedStudent == null) {
+            Toast.makeText(this, "Chọn sinh viên cần sửa", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        String code  = edCode.getText().toString().trim();
+        String name = edName.getText().toString().trim();
+        String ageStr = edAge.getText().toString().trim();
+
+        if (code.isEmpty() || name.isEmpty() || ageStr.isEmpty()) {
+            Toast.makeText(this, "Không được để trống", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        int age;
+        try {
+            age = Integer.parseInt(ageStr);
+        } catch (Exception e) {
+            Toast.makeText(this, "Tuổi phải là số", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        selectedStudent.setCode(code);
+        selectedStudent.setName(name);
+        selectedStudent.setAge(age);
+
+        studentDAO.update(selectedStudent);
+
+        loadData();
+
+        edCode.setText("");
+        edName.setText("");
+        edAge.setText("");
+
+        selectedStudent = null;
     }
 
     private void addStudent() {
@@ -106,6 +158,8 @@ public class MainActivity extends AppCompatActivity {
         edName.setText("");
         edAge.setText("");
     }
+    
+    
 
     private void loadData() {
         studentList = studentDAO.list();

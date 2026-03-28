@@ -34,12 +34,6 @@
     <list default="true" id="7a14bb5d-c465-436c-8d84-c2dfe471a33e" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/../PracticeAndroid2402/app/src/main/java/com/example/myapplication/MainActivity.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../PracticeAndroid2402/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/DAO/StudentDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/DB/DBConection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/adapter/StudentAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/entity/Student.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bg_edittext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_student.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../StudyAndroid2401/app/src/main/java/com/example/myapplication/AddStudentActivity.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../StudyAndroid2401/app/src/main/java/com/example/myapplication/ListStudentActivity.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../StudyAndroid2401/app/src/main/java/com/example/myapplication/MainActivity.java" afterDir="false" />
@@ -50,6 +44,12 @@
       <change afterPath="$PROJECT_DIR$/../StudyAndroid2401/app/src/main/res/layout/activity_list_student.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../StudyAndroid2401/app/src/main/res/layout/activity_main.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../StudyAndroid2401/app/src/main/res/layout/item_student.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_student.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_student.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +93,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleScriptDefinitionsStorage" workingDir="$PROJECT_DIR$" gradleHome="C:\Users\Phan Dac Huy\.gradle\wrapper\dists\gradle-8.13-bin\5xuhj0ry160q40clulazy9h7d\gradle-8.13" javaHome="H:\Android Studio\jbr" gradleVersion="8.13" />
   <component name="ProjectColorInfo">{
@@ -114,7 +114,7 @@
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true"
   }
 }]]></component>
