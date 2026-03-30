@@ -1,6 +1,8 @@
 package com.example.myapplication;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnUpdate;
     private RecyclerView rcvData;
     private DBConection dbConection;
+    private EditText edSearch;
     private StudentDAO studentDAO;
     private List<Student> studentList;
     private StudentAdapter studentAdapter;
@@ -48,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         edAge = findViewById(R.id.ed_student_age);
         btnAdd = findViewById(R.id.btn_add);
         btnUpdate = findViewById(R.id.btn_update);
+        edSearch = findViewById(R.id.ed_search);
         rcvData = findViewById(R.id.rcv_main);
         dbConection = Room.databaseBuilder(this, DBConection.class, "Student.db")
                 .allowMainThreadQueries()
@@ -73,12 +77,39 @@ public class MainActivity extends AppCompatActivity {
             edName.setText(student.getName());
             edAge.setText(String.valueOf(student.getAge()));
         });
+        edSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                searchStudent(s.toString());
+            }
+        });
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    private void searchStudent(String keyword) {
+        List<Student> list;
+        if (keyword.isEmpty()){
+            list = studentDAO.list();
+        }
+        else {
+            list = studentDAO.search(keyword);
+        }
+        studentAdapter.setData(list);
     }
 
     private void updateStudent() {

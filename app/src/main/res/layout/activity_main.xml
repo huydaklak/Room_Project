@@ -9,6 +9,16 @@
     android:layout_margin="20dp"
     tools:context=".MainActivity" >
 
+
+    <EditText
+        android:id="@+id/ed_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Tìm kiếm"
+        android:background="@drawable/bg_search"/>
+
     <EditText
         android:id="@+id/ed_student_code"
         android:layout_width="match_parent"
@@ -16,7 +26,8 @@
         android:ems="10"
         android:inputType="text"
         android:hint="Id"
-        android:background="@drawable/bg_edittext"/>
+        android:background="@drawable/bg_edittext"
+        android:layout_marginTop="10dp"/>
 
     <EditText
         android:id="@+id/ed_student_name"
