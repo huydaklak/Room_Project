@@ -15,6 +15,11 @@
           <theme>@style/Theme.MyApplication</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/outline_arrow_drop_down_24.xml">
+        <config>
+          <theme>@style/Theme.MyApplication</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
         <config>
           <theme>@style/Theme.MyApplication</theme>
@@ -34,7 +39,6 @@
     <list default="true" id="7a14bb5d-c465-436c-8d84-c2dfe471a33e" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/../PracticeAndroid2402/app/src/main/java/com/example/myapplication/MainActivity.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../PracticeAndroid2402/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bg_search.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../StudyAndroid2401/app/src/main/java/com/example/myapplication/AddStudentActivity.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../StudyAndroid2401/app/src/main/java/com/example/myapplication/ListStudentActivity.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../StudyAndroid2401/app/src/main/java/com/example/myapplication/MainActivity.java" afterDir="false" />
@@ -46,9 +50,11 @@
       <change afterPath="$PROJECT_DIR$/../StudyAndroid2401/app/src/main/res/layout/activity_main.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../StudyAndroid2401/app/src/main/res/layout/item_student.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/DAO/StudentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/DAO/StudentDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/MainActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

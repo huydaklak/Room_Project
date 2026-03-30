@@ -3,9 +3,12 @@ package com.example.myapplication;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -35,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView rcvData;
     private DBConection dbConection;
     private EditText edSearch;
+    private Spinner spinnerSort;
     private StudentDAO studentDAO;
     private List<Student> studentList;
     private StudentAdapter studentAdapter;
@@ -52,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         btnAdd = findViewById(R.id.btn_add);
         btnUpdate = findViewById(R.id.btn_update);
         edSearch = findViewById(R.id.ed_search);
+        spinnerSort  =findViewById(R.id.sp_sort);
         rcvData = findViewById(R.id.rcv_main);
         dbConection = Room.databaseBuilder(this, DBConection.class, "Student.db")
                 .allowMainThreadQueries()
@@ -93,6 +98,34 @@ public class MainActivity extends AppCompatActivity {
                 searchStudent(s.toString());
             }
         });
+
+
+        spinnerSort.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                List<Student> list = null;
+                if (position == 0){
+                    list = studentDAO.sortAgeAsc();
+                }
+                else {
+                    list = studentDAO.sortAgeDesc();
+                }
+                if (list != null) {
+                    studentAdapter.setData(list);
+                    studentAdapter.notifyDataSetChanged(); // Đảm bảo giao diện vẽ lại
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.sort_option, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerSort.setAdapter(adapter);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());

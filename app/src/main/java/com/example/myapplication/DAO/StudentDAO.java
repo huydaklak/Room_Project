@@ -19,4 +19,8 @@ public interface StudentDAO {
     void update(Student selectedStudent);
     @Query("SELECT * FROM student WHERE name LIKE '%' || :keyword || '%'")
     List<Student> search(String keyword);
+    @Query("SELECT * FROM student ORDER BY age ASC ")
+    List<Student> sortAgeAsc();
+    @Query("SELECT * FROM student ORDER BY age DESC")
+    List<Student> sortAgeDesc();
 }
