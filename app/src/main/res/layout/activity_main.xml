@@ -70,10 +70,15 @@
             android:layout_weight="1"
             android:backgroundTint="@color/green"
             android:text="ADD"/>
-
-
     </LinearLayout>
 
+
+    <Button
+        android:id="@+id/btn_delete"
+        android:layout_width="186dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/red"
+        android:text="DELETE" />
 
     <Spinner
         android:id="@+id/sp_sort"

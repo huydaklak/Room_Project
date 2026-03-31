@@ -23,4 +23,6 @@ public interface StudentDAO {
     List<Student> sortAgeAsc();
     @Query("SELECT * FROM student ORDER BY age DESC")
     List<Student> sortAgeDesc();
+    @Query("DELETE FROM student")
+    void deleteAll();
 }

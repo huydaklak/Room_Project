@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private DBConection dbConection;
     private EditText edSearch;
     private Spinner spinnerSort;
+    private Button btnDelete;
     private StudentDAO studentDAO;
     private List<Student> studentList;
     private StudentAdapter studentAdapter;
@@ -56,7 +57,8 @@ public class MainActivity extends AppCompatActivity {
         btnAdd = findViewById(R.id.btn_add);
         btnUpdate = findViewById(R.id.btn_update);
         edSearch = findViewById(R.id.ed_search);
-        spinnerSort  =findViewById(R.id.sp_sort);
+        spinnerSort  = findViewById(R.id.sp_sort);
+        btnDelete = findViewById(R.id.btn_delete);
         rcvData = findViewById(R.id.rcv_main);
         dbConection = Room.databaseBuilder(this, DBConection.class, "Student.db")
                 .allowMainThreadQueries()
@@ -126,6 +128,11 @@ public class MainActivity extends AppCompatActivity {
                 R.array.sort_option, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerSort.setAdapter(adapter);
+
+        btnDelete.setOnClickListener(v -> {
+            studentDAO.deleteAll();
+            loadData();
+        });
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
