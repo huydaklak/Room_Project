@@ -1,137 +1,36 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.room.Room;
-import androidx.room.RoomDatabase;
-
-import com.example.myapplication.DAO.StudentDAO;
-import com.example.myapplication.DB.DBConection;
-import com.example.myapplication.adapter.StudentAdapter;
-import com.example.myapplication.entity.Student;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private EditText edCode;
-    private EditText edName;
-    private EditText edAge;
-    private Button btnAdd;
-    private Button btnUpdate;
-    private RecyclerView rcvData;
-    private DBConection dbConection;
-    private EditText edSearch;
-    private Spinner spinnerSort;
-    private Button btnDelete;
-    private StudentDAO studentDAO;
-    private List<Student> studentList;
-    private StudentAdapter studentAdapter;
-    private Student selectedStudent;
+    private Button btnClass;
+    private Button btnStudent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main2);
 
-        edCode = findViewById(R.id.ed_student_code);
-        edName = findViewById(R.id.ed_student_name);
-        edAge = findViewById(R.id.ed_student_age);
-        btnAdd = findViewById(R.id.btn_add);
-        btnUpdate = findViewById(R.id.btn_update);
-        edSearch = findViewById(R.id.ed_search);
-        spinnerSort  = findViewById(R.id.sp_sort);
-        btnDelete = findViewById(R.id.btn_delete);
-        rcvData = findViewById(R.id.rcv_main);
-        dbConection = Room.databaseBuilder(this, DBConection.class, "Student.db")
-                .allowMainThreadQueries()
-                .build();
-        studentDAO = dbConection.createStudentDAO();
+        btnClass = findViewById(R.id.btn_class);
+        btnStudent = findViewById(R.id.btn_student);
 
-        rcvData.setLayoutManager(new LinearLayoutManager(this));
-        studentAdapter = new StudentAdapter(new ArrayList<>());
-        rcvData.setAdapter(studentAdapter);
-        loadData();
-
-        btnAdd.setOnClickListener(v -> {
-            addStudent();
+        btnClass.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ClassActivity.class);
+            startActivity(intent);
         });
 
-        btnUpdate.setOnClickListener(v -> {
-            updateStudent();
-        });
-        studentAdapter.setOnItemClickListener(student -> {
-            selectedStudent = student;
-
-            edCode.setText(student.getCode());
-            edName.setText(student.getName());
-            edAge.setText(String.valueOf(student.getAge()));
-        });
-        edSearch.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                searchStudent(s.toString());
-            }
-        });
-
-
-        spinnerSort.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                List<Student> list = null;
-                if (position == 0){
-                    list = studentDAO.sortAgeAsc();
-                }
-                else {
-                    list = studentDAO.sortAgeDesc();
-                }
-                if (list != null) {
-                    studentAdapter.setData(list);
-                    studentAdapter.notifyDataSetChanged(); // Đảm bảo giao diện vẽ lại
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.sort_option, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerSort.setAdapter(adapter);
-
-        btnDelete.setOnClickListener(v -> {
-            studentDAO.deleteAll();
-            loadData();
+        btnStudent.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, StudentActivity.class);
+            startActivity(intent);
         });
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -140,101 +39,4 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
     }
-
-    private void searchStudent(String keyword) {
-        List<Student> list;
-        if (keyword.isEmpty()){
-            list = studentDAO.list();
-        }
-        else {
-            list = studentDAO.search(keyword);
-        }
-        studentAdapter.setData(list);
-    }
-
-    private void updateStudent() {
-        if (selectedStudent == null) {
-            Toast.makeText(this, "Chọn sinh viên cần sửa", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        String code  = edCode.getText().toString().trim();
-        String name = edName.getText().toString().trim();
-        String ageStr = edAge.getText().toString().trim();
-
-        if (code.isEmpty() || name.isEmpty() || ageStr.isEmpty()) {
-            Toast.makeText(this, "Không được để trống", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        int age;
-        try {
-            age = Integer.parseInt(ageStr);
-        } catch (Exception e) {
-            Toast.makeText(this, "Tuổi phải là số", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        selectedStudent.setCode(code);
-        selectedStudent.setName(name);
-        selectedStudent.setAge(age);
-
-        studentDAO.update(selectedStudent);
-
-        loadData();
-
-        edCode.setText("");
-        edName.setText("");
-        edAge.setText("");
-
-        selectedStudent = null;
-    }
-
-    private void addStudent() {
-        String code  = edCode.getText().toString().trim();
-        String name = edName.getText().toString().trim();
-        String ageStr = edAge.getText().toString().trim();
-
-        if (code.isEmpty()) {
-            Toast.makeText(this, "Vui lòng nhập mã sinh viên", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        if (name.isEmpty()) {
-            Toast.makeText(this, "Vui lòng nhập tên sinh viên", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        if (ageStr.isEmpty()) {
-            Toast.makeText(this, "Vui lòng nhập tuổi", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        int age;
-        try {
-            age = Integer.parseInt(ageStr);
-            if (age <= 0 || age > 100) {
-                Toast.makeText(this, "Tuổi phải từ 1 đến 100", Toast.LENGTH_SHORT).show();
-                return;
-            }
-        } catch (NumberFormatException e) {
-            Toast.makeText(this, "Tuổi phải là số ", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        Student student = new Student(code, name, age);
-        studentDAO.insert(student);
-        loadData();
-
-        edCode.setText("");
-        edName.setText("");
-        edAge.setText("");
-    }
-    
-    
-
-    private void loadData() {
-        studentList = studentDAO.list();
-        studentAdapter.setData(studentList);
-    }
-
 }

@@ -4,4 +4,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="yellow">#30cfd0 </color>
     <color name="red">#C8392E</color>
+    <color name="btn_class">#34E7E7</color>
+    <color name="btn_student">#920E5F</color>
 </resources>

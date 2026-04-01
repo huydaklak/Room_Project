@@ -3,26 +3,36 @@ package com.example.myapplication.entity;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity
+@Entity(
+        tableName = "student",
+        foreignKeys  = @ForeignKey(entity = StudentClass.class,
+            parentColumns = "idStudentClass",
+        childColumns = "classId",
+        onDelete = ForeignKey.CASCADE
+    )
+)
 public class Student {
     @PrimaryKey(autoGenerate = true)
     private int id;
-    @ColumnInfo
+
     private String code;
-    @ColumnInfo
+
     private String name;
-    @ColumnInfo
+
     private int age;
+    private int classId;
 
     public Student() {
     }
 
-    public Student(String code, String name, int age) {
+    public Student(String code, String name, int age, int classId) {
         this.code = code;
         this.name = name;
         this.age = age;
+        this.classId = classId;
     }
 
     public int getId() {
@@ -55,6 +65,14 @@ public class Student {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public int getClassId() {
+        return classId;
+    }
+
+    public void setClassId(int classId) {
+        this.classId = classId;
     }
 
     @NonNull

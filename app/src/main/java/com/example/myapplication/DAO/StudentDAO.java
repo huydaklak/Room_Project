@@ -6,6 +6,7 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import com.example.myapplication.entity.Student;
+import com.example.myapplication.entity.StudentClass;
 
 import java.util.List;
 
@@ -25,4 +26,5 @@ public interface StudentDAO {
     List<Student> sortAgeDesc();
     @Query("DELETE FROM student")
     void deleteAll();
+
 }
