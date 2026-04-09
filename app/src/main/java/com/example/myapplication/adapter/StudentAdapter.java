@@ -17,6 +17,8 @@ import java.util.List;
 
 public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentViewHolder> {
     private List<Student> studentList;
+
+
     public interface OnItemClickListener {
         void onClick(Student student);
     }

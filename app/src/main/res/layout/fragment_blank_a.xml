@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="10dp"
     tools:context=".fragment.BlankFragmentA">
 
     <Button
@@ -11,4 +12,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Qua B" />
+
+    <EditText
+        android:id="@+id/edName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Name"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="ADD" />
 </LinearLayout>

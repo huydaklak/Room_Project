@@ -1,4 +1,4 @@
-package com.example.myapplication.fragment;
+package com.example.myapplication;
 
 import android.os.Bundle;
 
@@ -9,14 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.myapplication.R;
-
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link BlankFragmentB#newInstance} factory method to
+ * Use the {@link FragmentDetail#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class BlankFragmentB extends Fragment {
+public class FragmentDetail extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,7 +25,7 @@ public class BlankFragmentB extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public BlankFragmentB() {
+    public FragmentDetail() {
         // Required empty public constructor
     }
 
@@ -37,11 +35,11 @@ public class BlankFragmentB extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment BlankFragmentB.
+     * @return A new instance of fragment FragmentDetail.
      */
     // TODO: Rename and change types and number of parameters
-    public static BlankFragmentB newInstance(String param1, String param2) {
-        BlankFragmentB fragment = new BlankFragmentB();
+    public static FragmentDetail newInstance(String param1, String param2) {
+        FragmentDetail fragment = new FragmentDetail();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,14 +59,14 @@ public class BlankFragmentB extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_blank_b, container,false);
-        TextView tvResult = view.findViewById(R.id.tv_result_name);
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_detail, container, false);
+        TextView txtName = view.findViewById(R.id.txtNameOO);
         Bundle bundle = getArguments();
         if (bundle != null) {
             String name = bundle.getString("name");
-            tvResult.setText(name);
+            txtName.setText(name);
         }
-        // Inflate the layout for this fragment
         return view;
     }
 }

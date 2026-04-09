@@ -11,13 +11,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name=".HomeActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MyApplication" />
+        <activity
             android:name=".MainActivity"
             android:exported="false"
             android:theme="@style/Theme.MyApplication" />
         <activity android:name=".ClassActivity" />
         <activity android:name=".StudentActivity" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".MainActivity2"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

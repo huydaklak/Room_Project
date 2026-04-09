@@ -25,6 +25,11 @@
           <theme>@style/Theme.MyApplication</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/item_student.xml">
+        <config>
+          <theme>@style/Theme.MyApplication</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_class.xml">
         <config>
           <theme>@style/Theme.MyApplication</theme>
@@ -45,12 +50,32 @@
           <theme>@style/Theme.MyApplication</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main3.xml">
+        <config>
+          <theme>@style/Theme.MyApplication</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_name.xml">
+        <config>
+          <theme>@style/Theme.MyApplication</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_blank_a.xml">
         <config>
           <theme>@style/Theme.MyApplication</theme>
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_blank_b.xml">
+        <config>
+          <theme>@style/Theme.MyApplication</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_detail.xml">
+        <config>
+          <theme>@style/Theme.MyApplication</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_list.xml">
         <config>
           <theme>@style/Theme.MyApplication</theme>
         </config>
@@ -65,6 +90,11 @@
           <theme>@style/Theme.MyApplication</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_student_fra.xml">
+        <config>
+          <theme>@style/Theme.MyApplication</theme>
+        </config>
+      </layout>
     </layouts>
   </component>
   <component name="AutoImportSettings">
@@ -74,18 +104,17 @@
     <list default="true" id="7a14bb5d-c465-436c-8d84-c2dfe471a33e" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/../PracticeAndroid2402/app/src/main/java/com/example/myapplication/MainActivity.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../PracticeAndroid2402/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/HomeActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/fragment/BlankFragmentA.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/fragment/BlankFragmentB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_blank_a.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_blank_b.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/navigation/nav_graph.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-land/dimens.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-v23/themes.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-w1240dp/dimens.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-w600dp/dimens.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/FragmentDetail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/FragmentList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/MainActivity2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/adapter/FraStudentAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/model/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_detail.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_list.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_student_fra.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/navigation/nav_graph3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/navigation/nav_graph4.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../StudyAndroid2401/app/src/main/java/com/example/myapplication/AddStudentActivity.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../StudyAndroid2401/app/src/main/java/com/example/myapplication/ListStudentActivity.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../StudyAndroid2401/app/src/main/java/com/example/myapplication/MainActivity.java" afterDir="false" />
@@ -97,10 +126,12 @@
       <change afterPath="$PROJECT_DIR$/../StudyAndroid2401/app/src/main/res/layout/activity_main.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../StudyAndroid2401/app/src/main/res/layout/item_student.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/adapter/StudentAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/adapter/StudentAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/fragment/BlankFragmentA.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/fragment/BlankFragmentA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/fragment/BlankFragmentB.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/myapplication/fragment/BlankFragmentB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_blank_a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_blank_a.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_blank_b.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_blank_b.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,9 +167,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="resourceFile" />
         <option value="layoutResourceFile" />
-        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -148,7 +179,7 @@
   </component>
   <component name="GradleScriptDefinitionsStorage" workingDir="$PROJECT_DIR$" gradleHome="H:\Android\Sdk\wrapper\dists\gradle-8.13-bin\5xuhj0ry160q40clulazy9h7d\gradle-8.13" javaHome="H:\Android Studio\jbr" gradleVersion="8.13" />
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
@@ -173,6 +204,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="android.template.-1307810057">
+      <recent name="com.example.myapplication" />
+    </key>
     <key name="android.template.1918146744">
       <recent name="com.example.myapplication" />
     </key>
@@ -180,6 +214,9 @@
       <recent name="com.example.myapplication" />
     </key>
     <key name="android.template.1729380958">
+      <recent name="com.example.myapplication" />
+    </key>
+    <key name="android.template.-2134832474">
       <recent name="com.example.myapplication" />
     </key>
   </component>
@@ -272,12 +309,12 @@
       <map>
         <entry key="com.example.myapplication">
           <value>
-            <CheckInfo lastCheckTimestamp="1775648379244" />
+            <CheckInfo lastCheckTimestamp="1775738345379" />
           </value>
         </entry>
         <entry key="com.example.myapplication.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1775648379243" />
+            <CheckInfo lastCheckTimestamp="1775738345380" />
           </value>
         </entry>
       </map>

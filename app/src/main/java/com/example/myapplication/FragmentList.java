@@ -1,26 +1,29 @@
-package com.example.myapplication.fragment;
+package com.example.myapplication;
 
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.myapplication.R;
+import com.example.myapplication.adapter.FraStudentAdapter;
+import com.example.myapplication.adapter.StudentAdapter;
+import com.example.myapplication.model.Student;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link BlankFragmentA#newInstance} factory method to
+ * Use the {@link FragmentList#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class BlankFragmentA extends Fragment {
+public class FragmentList extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -31,7 +34,7 @@ public class BlankFragmentA extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public BlankFragmentA() {
+    public FragmentList() {
         // Required empty public constructor
     }
 
@@ -41,11 +44,11 @@ public class BlankFragmentA extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment BlankFragmentA.
+     * @return A new instance of fragment FragmentList.
      */
     // TODO: Rename and change types and number of parameters
-    public static BlankFragmentA newInstance(String param1, String param2) {
-        BlankFragmentA fragment = new BlankFragmentA();
+    public static FragmentList newInstance(String param1, String param2) {
+        FragmentList fragment = new FragmentList();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -65,39 +68,32 @@ public class BlankFragmentA extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_blank_a, container, false);
-        Button btn = view.findViewById(R.id.btnNext);
-        EditText edName = view.findViewById(R.id.edName);
-        Button btnAdd = view.findViewById(R.id.btnAdd);
+        View view = inflater.inflate(R.layout.fragment_list, container, false);
+        RecyclerView recyclerView = view.findViewById(R.id.rcvtest);
 
-        btn.setOnClickListener(v -> {
-            BlankFragmentB blankFragmentB = new BlankFragmentB();
-            requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, blankFragmentB)
-                    .addToBackStack(null).commit();
+        List<Student> list = new ArrayList<>();
+        list.add(new Student("Huy"));
+        list.add(new Student("Nam"));
+        list.add(new Student("An"));
+        FraStudentAdapter adapter = new FraStudentAdapter(list, student -> {
+          Bundle bundle = new Bundle();
+          bundle.putString("name", student.getName());
 
-        });
-
-        btnAdd.setOnClickListener(v -> {
-            String name = edName.getText().toString();
-
-            Bundle bundle = new Bundle();
-            bundle.putString("name", name);
-
-            BlankFragmentB blankFragmentB = new BlankFragmentB();
-            blankFragmentB.setArguments(bundle);
+          FragmentDetail fragmentDetail = new FragmentDetail();
+          fragmentDetail.setArguments(bundle);
 
             requireActivity().getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.fragment_container, blankFragmentB)
+                    .replace(R.id.fragment_container_test, fragmentDetail)
                     .addToBackStack(null)
                     .commit();
         });
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
+        recyclerView.setAdapter(adapter);
+
         // Inflate the layout for this fragment
         return view;
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-    }
 }
